@@ -5,4 +5,7 @@ from apps.main.models import Settings, Settings_All
 def index(request):
     settings_id = Settings.objects.latest("id")
     settings_all = Settings_All.objects.all()
-    return render(request, 'base/index.html', locals())
+    return render(request, 'base/about-us.html', locals())
+
+def about(request):
+    return render(request, 'base/about-us.html', locals())
