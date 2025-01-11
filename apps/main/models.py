@@ -1,25 +1,102 @@
 from django.db import models
 
+
+
 # Create your models here.
-class Settings(models.Model):
-    title = models.CharField(max_length=155,verbose_name='Заголовок')
-    image = models.ImageField(upload_to='settings', verbose_name='Фото')
-    description_image = models.TextField(verbose_name='Описание фотографий')
-    title2 = models.CharField(max_length=155,verbose_name='Заголовок 2')
+class Index(models.Model):
+  title = models.CharField(
+    max_length=255,
+    verbose_name="Заголовок"
+  )
+  description = models.TextField(
+    verbose_name="Описание"
+  )
+  logo = models.ImageField(
+    upload_to='logo/',
+    verbose_name='Логотип'
+  )
 
-    def __str__(self):
-        return self.title
+  def __str__(self):
+    return self.title
+  
+  class Meta:
+    verbose_name = 'Настройка главной страницы'
+    verbose_name_plural = "Настройка главной страницы"
 
-    class Meta:
-        verbose_name_plural = 'Настройки Главной Страницы'
+class Steps(models.Model):
+  img = models.ImageField(
+    upload_to='steps/',
+    verbose_name='Фото'
+  )
+  num = models.CharField(
+    max_length=255,
+    verbose_name='Нумерация'
+  )
+  title = models.CharField(
+    max_length=255,
+    verbose_name='Заголовок'
+  )
+  description = models.TimeField(
+    verbose_name='Описание'
+  )
 
-class Settings_All(models.Model):
-    title = models.CharField(max_length=155,verbose_name='Заголовок')
-    static = models.IntegerField(verbose_name='Статистика')
+  def __str__(self):
+    return f"{self.img}"
+  
+  class Meta:
+    verbose_name = "Шаг"
+    verbose_name_plural = "Шаги"
 
-    def __str__(self):
-        return self.title
 
-    class Meta:
-        verbose_name = ''
-        verbose_name_plural = 'Статистика в Главном Странице'
+class Contact(models.Model):
+  title = models.CharField(
+      max_length=255,
+      verbose_name='Заголовок'
+    )
+  description = models.TimeField(
+      verbose_name='Описание'
+    )
+  phone = models.CharField(
+    max_length=255,
+    verbose_name="Номер телефона"
+  )
+  email  = models.EmailField(
+    verbose_name="Email"
+  )
+  fb = models.URLField(
+    verbose_name="facebook"
+  )
+  ig = models.URLField(
+    verbose_name="instagram"
+  )
+  tt = models.URLField(
+    verbose_name="tiktok"
+  )
+
+  def __str__(self):
+      return self.title
+    
+  class Meta:
+      verbose_name = "Контакты"
+      verbose_name_plural = "Контакты"
+
+
+
+class Faq(models.Model):
+  title = models.CharField(
+      max_length=255,
+      verbose_name='Заголовок'
+    )
+  description = models.TimeField(
+      verbose_name='Описание'
+    )
+  email  = models.EmailField(
+    verbose_name="Email"
+  )
+  
+  def __str__(self):
+      return self.title
+  
+  class Meta:
+      verbose_name = "Часто задаваемые вопросы"
+      verbose_name_plural = "Часто задаваемые вопросы"
