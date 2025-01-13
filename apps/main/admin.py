@@ -22,6 +22,6 @@ class StepsAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
   list_display = ('title', 'description',)
 
-@admin.register(Faq)
-class FaqAdmin(admin.ModelAdmin):
-  list_display = ('title', 'description',)
+# @admin.register(Faq)
+# class FaqAdmin(admin.ModelAdmin):
+#   list_display = ('title', 'description',)

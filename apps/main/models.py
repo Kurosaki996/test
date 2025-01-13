@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
@@ -81,6 +81,11 @@ class Contact(models.Model):
       verbose_name_plural = "Контакты"
 
 
+class Form(models.Model):
+   name = models.CharField(_("Название"), max_length=200)
+
+
+   
 
 class Faq(models.Model):
   title = models.CharField(
