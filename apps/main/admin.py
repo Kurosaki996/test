@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.main.models import Index, Steps, Contact,Faq
+from apps.main.models import Index, Steps, Contact, Faq
 from django.utils.html import format_html
 
 admin.site.register(Index)
@@ -21,7 +21,3 @@ class StepsAdmin(admin.ModelAdmin):
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
   list_display = ('title', 'description',)
-
-# @admin.register(Faq)
-# class FaqAdmin(admin.ModelAdmin):
-#   list_display = ('title', 'description',)

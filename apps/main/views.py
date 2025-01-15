@@ -14,6 +14,9 @@ def contact(request):
     contact = Contact.objects.latest("id")
     return render(request, 'base/contacts.html', locals())
 
+def about_me(request):
+    return render(request,'base/about-me.html', locals())
+
 
 
 # def faq(request):
